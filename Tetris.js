@@ -1,3 +1,4 @@
+/* Functions refering to Sites design. */
 function setVisibility(elementId, visible) {
 	if (visible) {
 		document.getElementById(elementId).style.display = "block";
@@ -38,7 +39,24 @@ function testclick() {
 		posX: x,
 		line: y
 	};
-	game.putBlockInBoard();
+	if(game.blockCanBePlacedAt() == true)
+	{
+		game.putBlockInBoard();
+	}
+		
+	
+	
+}
+
+function printBoard() {
+	str = ""
+	for (var i = 0; i < 22; i++) {			
+			for (var j = 0; j < 10; j++) {
+				str = str + " " + this.game.board[i][j];
+			}			
+			str = str + "\n";
+	}
+	window.alert(str);
 }
 
 gameClicked();
